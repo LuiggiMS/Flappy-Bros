@@ -21,8 +21,6 @@
 		294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D631D0D56D500F7F5D4 /* CoreText.framework */; };
 		46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
 		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
-		46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
-		46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10517EB98FF00D1A890 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 503AE10317EB98FF00D1A890 /* main.cpp */; };
 		503AE11B17EB9C5A00D1A890 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503AE11A17EB9C5A00D1A890 /* IOKit.framework */; };
@@ -118,8 +116,6 @@
 		294D0D631D0D56D500F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
 		46880B8419C43A87006E1F66 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		46880B8519C43A87006E1F66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
-		46880B8719C43A87006E1F66 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE10317EB98FF00D1A890 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = mac/main.cpp; sourceTree = "<group>"; };
@@ -303,21 +299,8 @@
 			children = (
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
-				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
-				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
-				DAAAF9012332E51700CA1F7B /* Bird.cpp */,
-				DAAAF9052332E51700CA1F7B /* Bird.h */,
-				DAAAF9022332E51700CA1F7B /* Definitions.h */,
-				DAAAF8FE2332E51700CA1F7B /* GameOverScene.cpp */,
-				DAAAF9062332E51700CA1F7B /* GameOverScene.h */,
-				DAAAF9032332E51700CA1F7B /* GameScene.cpp */,
-				DAAAF9092332E51700CA1F7B /* GameScene.h */,
-				DAAAF9082332E51700CA1F7B /* MainMenuScene.cpp */,
-				DAAAF8FF2332E51700CA1F7B /* MainMenuScene.h */,
-				DAAAF9072332E51700CA1F7B /* Pipe.cpp */,
-				DAAAF9042332E51700CA1F7B /* Pipe.h */,
-				DAAAF90A2332E51700CA1F7B /* SplashScene.cpp */,
-				DAAAF9002332E51700CA1F7B /* SplashScene.h */,
+				DA4376742339069700429605 /* Scenes */,
+				DA437675233906A100429605 /* Models */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -341,6 +324,65 @@
 				503AE10417EB98FF00D1A890 /* Prefix.pch */,
 			);
 			name = mac;
+			sourceTree = "<group>";
+		};
+		DA4376742339069700429605 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				DAAAF9022332E51700CA1F7B /* Definitions.h */,
+				DA437677233906E400429605 /* GameOver */,
+				DA437678233906EC00429605 /* Game */,
+				DA437679233906F900429605 /* MainMenu */,
+				DA43767A2339070100429605 /* Splash */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		DA437675233906A100429605 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DAAAF9012332E51700CA1F7B /* Bird.cpp */,
+				DAAAF9052332E51700CA1F7B /* Bird.h */,
+				DAAAF9072332E51700CA1F7B /* Pipe.cpp */,
+				DAAAF9042332E51700CA1F7B /* Pipe.h */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DA437677233906E400429605 /* GameOver */ = {
+			isa = PBXGroup;
+			children = (
+				DAAAF8FE2332E51700CA1F7B /* GameOverScene.cpp */,
+				DAAAF9062332E51700CA1F7B /* GameOverScene.h */,
+			);
+			path = GameOver;
+			sourceTree = "<group>";
+		};
+		DA437678233906EC00429605 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				DAAAF9032332E51700CA1F7B /* GameScene.cpp */,
+				DAAAF9092332E51700CA1F7B /* GameScene.h */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		DA437679233906F900429605 /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				DAAAF9082332E51700CA1F7B /* MainMenuScene.cpp */,
+				DAAAF8FF2332E51700CA1F7B /* MainMenuScene.h */,
+			);
+			path = MainMenu;
+			sourceTree = "<group>";
+		};
+		DA43767A2339070100429605 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				DAAAF90A2332E51700CA1F7B /* SplashScene.cpp */,
+				DAAAF9002332E51700CA1F7B /* SplashScene.h */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -488,7 +530,6 @@
 				DAAAF90C2332E51700CA1F7B /* Bird.cpp in Sources */,
 				DAAAF90D2332E51700CA1F7B /* GameScene.cpp in Sources */,
 				DAAAF90F2332E51700CA1F7B /* MainMenuScene.cpp in Sources */,
-				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,7 +539,6 @@
 			files = (
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
-				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
