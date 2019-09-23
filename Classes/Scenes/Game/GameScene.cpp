@@ -8,7 +8,7 @@ Scene* GameScene::createScene()
 {
     // 'scene' is an autorelease object
     auto scene = Scene::createWithPhysics( );
-    scene->getPhysicsWorld( )->setDebugDrawMask( PhysicsWorld::DEBUGDRAW_ALL );
+//    scene->getPhysicsWorld( )->setDebugDrawMask( PhysicsWorld::DEBUGDRAW_ALL ); // Lineas rojas en cada objeto para DEBUG
     scene->getPhysicsWorld( )->setGravity( Vect( 0, 0 ) );
     
     // 'layer' is an autorelease object
@@ -31,6 +31,8 @@ bool GameScene::init()
     {
         return false;
     }
+    
+    CocosDenshion::SimpleAudioEngine::getInstance( )->playBackgroundMusic("Sounds/mario-bros.mp3");
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -91,7 +93,8 @@ bool GameScene::onContactBegin( cocos2d::PhysicsContact &contact )
     
     if ( ( BIRD_COLLISION_BITMASK == a->getCollisionBitmask( ) && OBSTACLE_COLLISION_BITMASK == b->getCollisionBitmask() ) || ( BIRD_COLLISION_BITMASK == b->getCollisionBitmask( ) && OBSTACLE_COLLISION_BITMASK == a->getCollisionBitmask() ) )
     {
-        CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( "Sounds/Hit.mp3" );
+        CocosDenshion::SimpleAudioEngine::getInstance( )->stopBackgroundMusic();
+        CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( "Sounds/endgame.m4a" );
         
         auto scene = GameOverScene::createScene( score );
         
