@@ -2,24 +2,24 @@
 #define __BIRD_H__
 
 #include "cocos2d.h"
+#include "audio/include/SimpleAudioEngine.h"
+using namespace CocosDenshion;
+using namespace cocos2d;
 
 class Bird
 {
 public:
-    Bird( cocos2d::Layer *layer );
-    
-    void Fall( );
-//    void Fly( ) { CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( "Sounds/Wing.mp3" ); isFalling = false; };
-    void StopFlying( ) { isFalling = true; }
+    Bird( Layer *layer );
+    void Fall();
+    void Fly();
+    void StopFlying();
     
 private:
-    cocos2d::Size visibleSize;
-    cocos2d::Vec2 origin;
-    
-    cocos2d::Sprite *flappyBird;
-    
+    Size visibleSize;
+    Vec2 origin;
+    Sprite *flappyBird;
     bool isFalling;
-    
 };
+
 
 #endif // __BIRD_H__

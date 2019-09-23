@@ -36,6 +36,13 @@ void Bird::Fall( )
     }
 }
 
+void Bird::Fly( ) {
+    CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( "Sounds/Wing.mp3" ); isFalling = false;
+}
+
+void Bird::StopFlying( ) {
+    isFalling = true;
+}
 
 
 

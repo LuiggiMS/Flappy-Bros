@@ -91,7 +91,7 @@ bool GameScene::onContactBegin( cocos2d::PhysicsContact &contact )
     
     if ( ( BIRD_COLLISION_BITMASK == a->getCollisionBitmask( ) && OBSTACLE_COLLISION_BITMASK == b->getCollisionBitmask() ) || ( BIRD_COLLISION_BITMASK == b->getCollisionBitmask( ) && OBSTACLE_COLLISION_BITMASK == a->getCollisionBitmask() ) )
     {
-//        CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( "Sounds/Hit.mp3" );
+        CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( "Sounds/Hit.mp3" );
         
         auto scene = GameOverScene::createScene( score );
         
@@ -99,7 +99,7 @@ bool GameScene::onContactBegin( cocos2d::PhysicsContact &contact )
     }
     else if ( ( BIRD_COLLISION_BITMASK == a->getCollisionBitmask( ) && POINT_COLLISION_BITMASK == b->getCollisionBitmask() ) || ( BIRD_COLLISION_BITMASK == b->getCollisionBitmask( ) && POINT_COLLISION_BITMASK == a->getCollisionBitmask() ) )
     {
-//        CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( "Sounds/Point.mp3" );
+        CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( "Sounds/Point.mp3" );
         
         score++;
         
@@ -113,7 +113,7 @@ bool GameScene::onContactBegin( cocos2d::PhysicsContact &contact )
 
 bool GameScene::onTouchBegan( cocos2d::Touch *touch, cocos2d::Event *event )
 {
-//    bird->Fly( );
+    bird->Fly( );
     
     this->scheduleOnce( schedule_selector( GameScene::StopFlying ), BIRD_FLY_DURATION );
     
