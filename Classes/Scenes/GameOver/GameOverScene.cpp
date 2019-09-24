@@ -94,9 +94,9 @@ void GameOverScene::GoToMainMenuScene( cocos2d::Ref *sender )
 
 void GameOverScene::GoToGameScene( cocos2d::Ref *sender )
 {
-    auto scene = GameScene::createScene( );
+//    auto scene = GameScene::createScene();
     
-    Director::getInstance( )->replaceScene( TransitionFade::create( TRANSITION_TIME, scene ) );
+//    Director::getInstance( )->replaceScene( TransitionFade::create( TRANSITION_TIME, scene ) );
 }
 
 

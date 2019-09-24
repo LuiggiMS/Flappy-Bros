@@ -1,6 +1,7 @@
 #include "MainMenuScene.h"
 #include "GameScene.h"
 #include "Definitions.h"
+#include "Nivel.h"
 
 USING_NS_CC;
 
@@ -50,10 +51,7 @@ bool MainMenuScene::init()
 
 void MainMenuScene::GoToGameScene( cocos2d::Ref *sender )
 {
-    auto scene = GameScene::createScene();
-    
+    Nivel *level = new Nivel(0.0040, 10);
+    auto scene = GameScene::createScene(level);
     Director::getInstance( )->replaceScene( TransitionFade::create( TRANSITION_TIME, scene ) );
 }
-
-
-

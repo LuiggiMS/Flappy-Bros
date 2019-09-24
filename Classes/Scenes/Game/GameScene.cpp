@@ -4,8 +4,12 @@
 
 USING_NS_CC;
 
-Scene* GameScene::createScene()
+Nivel* level;
+
+Scene* GameScene::createScene(Nivel* lvl)
 {
+    level = lvl;
+
     // 'scene' is an autorelease object
     auto scene = Scene::createWithPhysics( );
 //    scene->getPhysicsWorld( )->setDebugDrawMask( PhysicsWorld::DEBUGDRAW_ALL ); // Lineas rojas en cada objeto para DEBUG
@@ -53,7 +57,7 @@ bool GameScene::init()
     
     this->addChild( edgeNode );
     
-    this->schedule( schedule_selector( GameScene::SpawnPipe ), PIPE_SPAWN_FREQUENCY * visibleSize.width );
+    this->schedule( schedule_selector( GameScene::SpawnPipe ), level->speed * visibleSize.width );
     
     bird = new Bird( this );
     

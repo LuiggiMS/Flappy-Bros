@@ -154,6 +154,9 @@
 		DAAAF9082332E51700CA1F7B /* MainMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuScene.cpp; sourceTree = "<group>"; };
 		DAAAF9092332E51700CA1F7B /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		DAAAF90A2332E51700CA1F7B /* SplashScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SplashScene.cpp; sourceTree = "<group>"; };
+		DAC7BA98233933FC00FDDE60 /* Lista.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Lista.h; sourceTree = "<group>"; };
+		DAC7BA9E233934DB00FDDE60 /* Nodo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Nodo.h; sourceTree = "<group>"; };
+		DAC7BAA1233934E700FDDE60 /* Nivel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Nivel.h; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -330,10 +333,10 @@
 			isa = PBXGroup;
 			children = (
 				DAAAF9022332E51700CA1F7B /* Definitions.h */,
-				DA437677233906E400429605 /* GameOver */,
-				DA437678233906EC00429605 /* Game */,
-				DA437679233906F900429605 /* MainMenu */,
 				DA43767A2339070100429605 /* Splash */,
+				DA437679233906F900429605 /* MainMenu */,
+				DA437678233906EC00429605 /* Game */,
+				DA437677233906E400429605 /* GameOver */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -345,6 +348,9 @@
 				DAAAF9052332E51700CA1F7B /* Bird.h */,
 				DAAAF9072332E51700CA1F7B /* Pipe.cpp */,
 				DAAAF9042332E51700CA1F7B /* Pipe.h */,
+				DAC7BA98233933FC00FDDE60 /* Lista.h */,
+				DAC7BA9E233934DB00FDDE60 /* Nodo.h */,
+				DAC7BAA1233934E700FDDE60 /* Nivel.h */,
 			);
 			path = Models;
 			sourceTree = "<group>";
