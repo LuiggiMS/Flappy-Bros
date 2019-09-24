@@ -51,7 +51,7 @@ bool MainMenuScene::init()
 
 void MainMenuScene::GoToGameScene( cocos2d::Ref *sender )
 {
-    Nivel *level = new Nivel(0.0040, 10);
+    Nivel *level = new Nivel(2.5, 10); // Nivel 1
     auto scene = GameScene::createScene(level);
     Director::getInstance( )->replaceScene( TransitionFade::create( TRANSITION_TIME, scene ) );
 }
