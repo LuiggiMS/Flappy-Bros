@@ -11,6 +11,7 @@ class Nivel{
 public:
     double speed;
     int pipes;
+    int score;
     Nivel(double speed = 0.0, int pipes = 0)
     :speed(speed), pipes(pipes)
     {}

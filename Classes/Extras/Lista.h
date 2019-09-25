@@ -18,6 +18,7 @@ public:
     void insertarFinal(T v);
     T obtenerInicial();
     T obtenerFinal();
+    void eliminarInicial();
     void mostrar();
 };
 
@@ -28,7 +29,7 @@ Lista<T>::~Lista() {
     while(inicio != NULL) {
         temp = inicio;
         inicio=inicio->siguiente;
-        delete temp;
+        //delete temp;
         temp=NULL;
     }
     delete inicio;
@@ -98,5 +99,10 @@ T Lista<T>::obtenerFinal() {
         }
         return aux->valor;
     }
+}
+template<class T>
+void Lista<T>::eliminarInicial() {
+    if (inicio->siguiente != NULL)
+        inicio = inicio->siguiente;
 }
 #endif
