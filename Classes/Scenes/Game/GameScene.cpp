@@ -5,11 +5,14 @@
 USING_NS_CC;
 
 Nivel* level;
+Lista<Nivel*> levels;
+int scoree;
 
-Scene* GameScene::createScene(Nivel* lvl)
+Scene* GameScene::createScene(Lista<Nivel*> lvls, int scr)
 {
-    level = lvl;
-
+    levels = lvls;
+    level = levels.obtenerInicial();
+    scoree = scr;
     // 'scene' is an autorelease object
     auto scene = Scene::createWithPhysics( );
 //    scene->getPhysicsWorld( )->setDebugDrawMask( PhysicsWorld::DEBUGDRAW_ALL ); // Lineas rojas en cada objeto para DEBUG
@@ -71,9 +74,9 @@ bool GameScene::init()
     touchListener->onTouchBegan = CC_CALLBACK_2( GameScene::onTouchBegan, this );
     Director::getInstance( )->getEventDispatcher( )->addEventListenerWithSceneGraphPriority( touchListener, this );
     
-    score = 0;
+//    score = 0;
     
-    __String *tempScore = __String::createWithFormat( "%i", score );
+    __String *tempScore = __String::createWithFormat( "%i", scoree );
     
     scoreLabel = Label::createWithTTF( tempScore->getCString( ), "fonts/Marker Felt.ttf", visibleSize.height * SCORE_FONT_SIZE );
     scoreLabel->setColor( Color3B::WHITE );
@@ -99,9 +102,9 @@ bool GameScene::onContactBegin( cocos2d::PhysicsContact &contact )
     if ( ( BIRD_COLLISION_BITMASK == a->getCollisionBitmask( ) && OBSTACLE_COLLISION_BITMASK == b->getCollisionBitmask() ) || ( BIRD_COLLISION_BITMASK == b->getCollisionBitmask( ) && OBSTACLE_COLLISION_BITMASK == a->getCollisionBitmask() ) )
     {
         CocosDenshion::SimpleAudioEngine::getInstance( )->stopBackgroundMusic();
-        CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( "Sounds/endgame.m4a" );
+        CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( "Sounds/endgame2.m4a" );
         
-        auto scene = GameOverScene::createScene( score );
+        auto scene = GameOverScene::createScene( scoree );
         
         Director::getInstance( )->replaceScene( TransitionFade::create( TRANSITION_TIME, scene ) );
     }
@@ -109,9 +112,10 @@ bool GameScene::onContactBegin( cocos2d::PhysicsContact &contact )
     {
         CocosDenshion::SimpleAudioEngine::getInstance( )->playEffect( "Sounds/Point.mp3" );
         
-        score++;
+        scoree++;
+        pipesCount++;
         
-        __String *tempScore = __String::createWithFormat( "%i", score );
+        __String *tempScore = __String::createWithFormat( "%i", scoree );
         
         scoreLabel->setString( tempScore->getCString( ) );
     }
@@ -136,6 +140,12 @@ void GameScene::StopFlying( float dt )
 void GameScene::update( float dt )
 {
     bird->Fall( );
+    
+    if (pipesCount == level->pipes){
+        levels.eliminarInicial();
+        auto scene = GameScene::createScene(levels, scoree);
+        Director::getInstance( )->replaceScene( TransitionFade::create( TRANSITION_TIME, scene ) );
+    }
 }
 
 

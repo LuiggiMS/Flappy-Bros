@@ -5,12 +5,13 @@
 #include "Pipe.h"
 #include "Bird.h"
 #include "Nivel.h"
+#include "Lista.h"
 
 class GameScene : public cocos2d::Layer
 {
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
-    static cocos2d::Scene* createScene(Nivel* lvl);
+    static cocos2d::Scene* createScene(Lista<Nivel*> lvls, int scr);
 
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
     virtual bool init();
@@ -36,7 +37,7 @@ private:
     
     Bird *bird;
     
-    unsigned int score;
+    unsigned int pipesCount;
     
     cocos2d::Label *scoreLabel;
     

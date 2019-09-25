@@ -2,7 +2,6 @@
 #include "GameScene.h"
 #include "Definitions.h"
 #include "Nivel.h"
-
 USING_NS_CC;
 
 Scene* MainMenuScene::createScene()
@@ -51,7 +50,16 @@ bool MainMenuScene::init()
 
 void MainMenuScene::GoToGameScene( cocos2d::Ref *sender )
 {
-    Nivel *level = new Nivel(2.5, 8); // Nivel 1 (2.5 seg para reespawn, 8 obstáculos)
-    auto scene = GameScene::createScene(level);
+        
+    Lista<Nivel*> niveles;
+    niveles.insertarFinal(new Nivel(4.0, 4));
+    niveles.insertarFinal(new Nivel(3.0, 7));
+    niveles.insertarFinal(new Nivel(2.5, 9));
+    niveles.insertarFinal(new Nivel(2.0, 11));
+    niveles.insertarFinal(new Nivel(2.0, 30));
+    niveles.insertarFinal(new Nivel(2.0, 50));
+    
+    auto scene = GameScene::createScene(niveles, 0);
+    
     Director::getInstance( )->replaceScene( TransitionFade::create( TRANSITION_TIME, scene ) );
 }
