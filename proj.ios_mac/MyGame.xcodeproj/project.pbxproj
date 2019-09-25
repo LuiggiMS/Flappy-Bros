@@ -304,6 +304,7 @@
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				DA4376742339069700429605 /* Scenes */,
 				DA437675233906A100429605 /* Models */,
+				DAB1C481233AFF5600573DAF /* Extras */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -344,13 +345,8 @@
 		DA437675233906A100429605 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DAAAF9012332E51700CA1F7B /* Bird.cpp */,
-				DAAAF9052332E51700CA1F7B /* Bird.h */,
-				DAAAF9072332E51700CA1F7B /* Pipe.cpp */,
-				DAAAF9042332E51700CA1F7B /* Pipe.h */,
-				DAC7BA98233933FC00FDDE60 /* Lista.h */,
-				DAC7BA9E233934DB00FDDE60 /* Nodo.h */,
-				DAC7BAA1233934E700FDDE60 /* Nivel.h */,
+				DAB1C47E233AFF2600573DAF /* Bird */,
+				DAB1C480233AFF3100573DAF /* Pipe */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -389,6 +385,34 @@
 				DAAAF9002332E51700CA1F7B /* SplashScene.h */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		DAB1C47E233AFF2600573DAF /* Bird */ = {
+			isa = PBXGroup;
+			children = (
+				DAAAF9012332E51700CA1F7B /* Bird.cpp */,
+				DAAAF9052332E51700CA1F7B /* Bird.h */,
+			);
+			path = Bird;
+			sourceTree = "<group>";
+		};
+		DAB1C480233AFF3100573DAF /* Pipe */ = {
+			isa = PBXGroup;
+			children = (
+				DAAAF9072332E51700CA1F7B /* Pipe.cpp */,
+				DAAAF9042332E51700CA1F7B /* Pipe.h */,
+			);
+			path = Pipe;
+			sourceTree = "<group>";
+		};
+		DAB1C481233AFF5600573DAF /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				DAC7BA98233933FC00FDDE60 /* Lista.h */,
+				DAC7BA9E233934DB00FDDE60 /* Nodo.h */,
+				DAC7BAA1233934E700FDDE60 /* Nivel.h */,
+			);
+			path = Extras;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
