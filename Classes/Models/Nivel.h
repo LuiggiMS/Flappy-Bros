@@ -11,7 +11,7 @@ class Nivel{
 public:
     double speed;
     int pipes;
-    Nivel(double speed = 0.0, int y = 0)
+    Nivel(double speed = 0.0, int pipes = 0)
     :speed(speed), pipes(pipes)
     {}
     
