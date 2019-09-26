@@ -17,8 +17,8 @@ public:
     
 private:
     void GoToMainMenuScene( cocos2d::Ref *sender );
-    void GoToGameScene( cocos2d::Ref *sender );
-    
+    void saveScore(int score);
+     int recoverScore();
 };
 
 #endif // __GAME_OVER_SCENE_H__

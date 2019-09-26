@@ -5,7 +5,7 @@
 
 USING_NS_CC;
 
-unsigned int score;
+int score;
 
 Scene* GameOverScene::createScene( unsigned int tempScore )
 {
@@ -41,41 +41,36 @@ bool GameOverScene::init()
     backgroundSprite->setPosition( Point( visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y ) );
     
     this->addChild( backgroundSprite );
-    
-    auto retryItem = MenuItemImage::create( "Retry Button.png", "Retry Button Clicked.png", CC_CALLBACK_1( GameOverScene::GoToGameScene, this ) );
-    retryItem->setPosition( Point( visibleSize.width / 2 + origin.x, visibleSize.height / 4 * 3 ) );
-    
+        
     auto mainMenuItem = MenuItemImage::create( "Menu Button.png", "Menu Button Clicked.png", CC_CALLBACK_1( GameOverScene::GoToMainMenuScene, this ) );
     mainMenuItem->setPosition( Point( visibleSize.width / 2 + origin.x, visibleSize.height / 4 ) );
     
-    auto menu = Menu::create( retryItem, mainMenuItem, NULL );
+    auto menu = Menu::create(mainMenuItem, NULL );
     menu->setPosition( Point::ZERO );
     
     this->addChild( menu );
     
-    UserDefault *def = UserDefault::getInstance( );
+    //------------------------------------------------------------------------------
+    auto highScore = GameOverScene::recoverScore(); // Recuperar puntaje
     
-    auto highScore = def->getIntegerForKey( "HIGHSCORE FLAPPY", 0 );
-    
+    // Si el puntaje realizado es mayor al puntaje recuperado desde archivo
     if ( score > highScore )
     {
         highScore = score;
-        
-        def->setIntegerForKey( "HIGHSCORE FLAPPY", highScore );
+        GameOverScene::saveScore(score); // Guardar puntaje
     }
-    
-    def->flush( );
-    
+    //------------------------------------------------------------------------------
+
     __String *tempScore = __String::createWithFormat( "%i", score );
     
-    auto currentScore = LabelTTF::create( tempScore->getCString( ), "fonts/Marker Felt.ttf", visibleSize.height * SCORE_FONT_SIZE );
+    auto currentScore = Label::create( tempScore->getCString( ), "fonts/Marker Felt.ttf", visibleSize.height * SCORE_FONT_SIZE );
     currentScore->setPosition( Point( visibleSize.width * 0.25 + origin.x, visibleSize.height / 2 + origin.y ) );
     
     this->addChild( currentScore );
     
     __String *tempHighScore = __String::createWithFormat( "%i", highScore );
     
-    auto highScoreLabel = LabelTTF::create( tempHighScore->getCString( ), "fonts/Marker Felt.ttf", visibleSize.height * SCORE_FONT_SIZE );
+    auto highScoreLabel = Label::create( tempHighScore->getCString( ), "fonts/Marker Felt.ttf", visibleSize.height * SCORE_FONT_SIZE );
     
     highScoreLabel->setColor( Color3B::YELLOW );
     highScoreLabel->setPosition( Point( visibleSize.width * 0.75 + origin.x, visibleSize.height / 2 + origin.y ) );
@@ -85,18 +80,31 @@ bool GameOverScene::init()
     return true;
 }
 
+void GameOverScene::saveScore(int score){
+    __Dictionary *dictionary = __Dictionary::create();
+    dictionary->setObject(__Integer::create(score), __String::create("keyScore")->getCString());
+    
+    __String *fileName = __String::create("scores.plist"); // Nombre de archivo
+    __String *filePath = __String::createWithFormat("%s%s",FileUtils::getInstance()->getWritablePath().c_str(), fileName->getCString()); // Nombre de ruta de archivo
+    
+    dictionary->writeToFile(filePath->getCString());// Guardar diccionario en la ruta especificada
+}
+
+int GameOverScene::recoverScore(){
+    __String *fileName = __String::create("scores.plist"); // Nombre de archivo
+    __String *filePath = __String::createWithFormat("%s%s",FileUtils::getInstance()->getWritablePath().c_str(), fileName->getCString()); // Nombre de ruta de archivo
+    
+    __Dictionary *dictionary = __Dictionary::createWithContentsOfFile(filePath->getCString()); // Crear diccionario a partir del archivo de la ruta especificada
+    int score = dictionary->valueForKey("keyScore")->intValue(); // Obtener el puntaje
+    log("Puntaje recuperado: %i", score);
+    return score;
+}
+
 void GameOverScene::GoToMainMenuScene( cocos2d::Ref *sender )
 {
     auto scene = MainMenuScene::createScene( );
     
     Director::getInstance( )->replaceScene( TransitionFade::create( TRANSITION_TIME, scene ) );
-}
-
-void GameOverScene::GoToGameScene( cocos2d::Ref *sender )
-{
-//    auto scene = GameScene::createScene();
-    
-//    Director::getInstance( )->replaceScene( TransitionFade::create( TRANSITION_TIME, scene ) );
 }
 
 

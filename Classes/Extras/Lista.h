@@ -10,7 +10,6 @@ template<class T>
 class Lista {
 private:
     Nodo<T> *inicio;
-    
 public:
     Lista() { inicio = NULL; }
     ~Lista();
@@ -21,7 +20,6 @@ public:
     void eliminarInicial();
     void mostrar();
 };
-
 //------------------------------------------------------------------------------
 template<class T>
 Lista<T>::~Lista() {
@@ -35,7 +33,6 @@ Lista<T>::~Lista() {
     delete inicio;
     inicio=NULL;
 }
-
 //------------------------------------------------------------------------------
 template<class T>
 void Lista<T>::insertarInicio(T v){
@@ -100,9 +97,11 @@ T Lista<T>::obtenerFinal() {
         return aux->valor;
     }
 }
+//------------------------------------------------------------------------------
 template<class T>
 void Lista<T>::eliminarInicial() {
     if (inicio->siguiente != NULL)
         inicio = inicio->siguiente;
 }
+//------------------------------------------------------------------------------
 #endif
