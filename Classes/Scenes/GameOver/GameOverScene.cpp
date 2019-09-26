@@ -63,14 +63,14 @@ bool GameOverScene::init()
 
     __String *tempScore = __String::createWithFormat( "%i", score );
     
-    auto currentScore = Label::create( tempScore->getCString( ), "fonts/Marker Felt.ttf", visibleSize.height * SCORE_FONT_SIZE );
+    auto currentScore = Label::createWithTTF( tempScore->getCString( ), "fonts/Marker Felt.ttf", visibleSize.height * SCORE_FONT_SIZE );
     currentScore->setPosition( Point( visibleSize.width * 0.25 + origin.x, visibleSize.height / 2 + origin.y ) );
     
     this->addChild( currentScore );
     
     __String *tempHighScore = __String::createWithFormat( "%i", highScore );
     
-    auto highScoreLabel = Label::create( tempHighScore->getCString( ), "fonts/Marker Felt.ttf", visibleSize.height * SCORE_FONT_SIZE );
+    auto highScoreLabel = Label::createWithTTF( tempHighScore->getCString( ), "fonts/Marker Felt.ttf", visibleSize.height * SCORE_FONT_SIZE );
     
     highScoreLabel->setColor( Color3B::YELLOW );
     highScoreLabel->setPosition( Point( visibleSize.width * 0.75 + origin.x, visibleSize.height / 2 + origin.y ) );
