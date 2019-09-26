@@ -55,12 +55,14 @@ void MainMenuScene::GoToGameScene( cocos2d::Ref *sender )
 {
         
     Lista<Nivel*> niveles;
-    niveles.insertarFinal(new Nivel(4.0, 4));
-    niveles.insertarFinal(new Nivel(3.0, 7));
-    niveles.insertarFinal(new Nivel(2.5, 9));
-    niveles.insertarFinal(new Nivel(2.0, 11));
-    niveles.insertarFinal(new Nivel(2.0, 30));
-    niveles.insertarFinal(new Nivel(2.0, 50));
+    niveles.insertarFinal(new Nivel(3.0, 5));
+    niveles.insertarFinal(new Nivel(2.0, 10));
+    niveles.insertarFinal(new Nivel(1.8, 11));
+    niveles.insertarFinal(new Nivel(1.6, 12));
+    niveles.insertarFinal(new Nivel(1.5, 13));
+    niveles.insertarFinal(new Nivel(1.4, 14));
+    niveles.insertarFinal(new Nivel(1.3, 20));
+    niveles.insertarFinal(new Nivel(1.2, 20));
     
     auto scene = GameScene::createScene(niveles, 0);
     
