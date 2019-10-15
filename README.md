@@ -1,4 +1,4 @@
-# Flappy-Bros (iOS)
+# Flappy Bros (iOS)
 
 Game Framework: Cocos2d-x
 
@@ -8,4 +8,8 @@ Language: C++
 
 Data structure: Simple linked list
 
-![alt text](https://i.imgur.com/rAfIsCH.png)
+Video game play: https://youtu.be/gn6y6Bn-EEU
+
+![alt text](https://i.imgur.com/sQ8kHac.png)
+
+![alt text](https://i.imgur.com/oxg9aMl.png)
